@@ -18,3 +18,5 @@
 - `rabbitmqctl set_permissions -p "/" [username] ".*" ".*" "/*"`分配用户权限
 - `firewall-cmd --zone=public --add-port=15672/tcp --permanent`
 - `firewall-cmd --reload`防火墙开启端口
+
+> [erlang与rabbitmq版本关系](https://www.rabbitmq.com/which-erlang.html)
