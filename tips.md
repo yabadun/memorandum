@@ -7,4 +7,4 @@
 - 静态内部类只能访问外部类的静态变量
 
 # java中获取jar包路径的方法
-# `String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();`
+- `String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();`
