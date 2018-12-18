@@ -8,3 +8,6 @@
 
 # java中获取jar包路径的方法
 - `String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();`
+
+# java正则表达式
+- `matcher.group(0)`代表匹配到的整个字符串
