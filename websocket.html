@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta charset="UTF-8"></meta>
+</head>
+<script>
+var socket=new WebSocket("ws://localhost:8080/websocket");
+socket.onmessage=function(event){
+    console.log(event.data);
+	var div=document.getElementById("showDiv");
+	var ch=document.createElement("div");
+	ch.innerHTML=event.data;
+	div.appendChild(ch);
+
+	
+};
+socket.onopen=function(event){
+console.log(event.data);
+};
+socket.onclose=function(event){
+console.log("websocket closed");
+
+
+}
+function send(){
+socket.send("OK?");
+}
+</script>
+<body>
+<div id="showDiv" onclick="send()" style="width: 100px;    height: 100px;    background-color: aliceblue;"></div>
+
+</body>
+
+</html>
