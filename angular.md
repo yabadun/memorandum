@@ -40,9 +40,8 @@ export class AppComponent {
 ```
 ## 绑定
 - 从component到template
-  - {{expression}} 
-  - [target]="expression"
-    - property绑定`<img [src]="heroImageUrl">`
+  - {{expression}} `<img src="{{imgUrl}}"  />`
+  - [target]="expression"`<img [src]="imgUrl" />`
   - bind-target="expression"
 - 从template到component
   - (target)="statement"
