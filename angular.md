@@ -38,10 +38,11 @@ export class AppComponent {
   title = 'an-demo';
 }
 ```
-## 数据绑定
+## 绑定
 - 从component到template
-  - {{expression}}
+  - {{expression}} 
   - [target]="expression"
+    - property绑定`<img [src]="heroImageUrl">`
   - bind-target="expression"
 - 从template到component
   - (target)="statement"
