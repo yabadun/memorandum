@@ -38,3 +38,14 @@ export class AppComponent {
   title = 'an-demo';
 }
 ```
+## 数据绑定
+- 从component到template
+  - {{expression}}
+  - [target]="expression"
+  - bind-target="expression"
+- 从template到component
+  - (target)="statement"
+  - on-target="statement"
+- 双向
+  - [(target)]="expression"
+  - bindon-target="expression"
