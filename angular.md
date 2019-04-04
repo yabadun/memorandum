@@ -42,7 +42,7 @@ export class AppComponent {
 - 从component到template
   - {{expression}} `<img src="{{imgUrl}}"  />`
   - [target]="expression"`<img [src]="imgUrl" />`
-  - bind-target="expression"
+  - bind-target="expression"`<img bind-src="imgUrl" />`
 - 从template到component
   - (target)="statement"
   - on-target="statement"
