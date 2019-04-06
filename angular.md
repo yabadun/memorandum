@@ -44,8 +44,8 @@ export class AppComponent {
   - [target]="expression"`<img [src]="imgUrl" />`
   - bind-target="expression"`<img bind-src="imgUrl" />`
 - 从template到component
-  - (target)="statement"
-  - on-target="statement"
+  - (target)="statement"`<button click="onSave($event)">Save</button>`
+  - on-target="statement"`<button on-click="onSave($event)">Save</button>`
 - 双向
   - [(target)]="expression"
   - bindon-target="expression"
