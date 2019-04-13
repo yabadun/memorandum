@@ -75,4 +75,5 @@ WHERE query_id = 1 GROUP BY state ORDER BY total_r DESC;
   - Using where：MySQL服务器将在存储引擎检索行后，通过Where子句条件进行过滤`Select * from address where city_id>12;`
   - Using temporary：MYSQL需要创建一个临时表来存储结果，用于排序`Select DISTINCT district from address;`
   - Using filesort：MySQL将对结果进行外部排序`Select * from address  order by district;`
+
 不考虑存储过程、触发器、缓存；部分计算为估算并不精确；只能解释查询语句
