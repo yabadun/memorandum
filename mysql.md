@@ -39,3 +39,35 @@ INNODB有两个隐藏列:行创建时间(当前服务的事务ID作为版本号)
 - 寻道
 - 旋转
 - 读取
+
+# 慢查询日志
+- `show VARIABLES like 'slow_query_log%';`
+- `set global slow_query_log=ON;`
+- `show VARIABLES like 'log_queries_not_using_indexes%';`
+- `show VARIABLES like 'long_query_time%';`
+
+# show profiles
+- `set profiling=1;`
+- `show profiles;`
+- `show profile for query 5;`
+- `SHOW PROFILE BLOCK IO,CPU FOR QUERY 1;`
+- `SELECT state, SUM(duration) AS Total_R, 
+  ROUND(100 * SUM(duration) / (SELECT SUM(duration) FROM information_schema.profiling WHERE query_id = 1), 2) AS Pct_R, 
+  COUNT(*) as Calls, SUM(duration) /COUNT(*) AS "R/Call" 
+  FROM information_schema.profiling
+WHERE query_id = 1 GROUP BY state ORDER BY total_r DESC;
+`
+# 执行计划explain
+- table：对应的表
+- type：连接类型
+  - all 全表扫描`select * from table`
+  - index 全索引扫描`select id from table`
+  - range   `<` `>` `in ()` `between`   根据索引范围查找`select * from table where id>2`
+  - ref  根据索引查询匹配某个值的行（默认多行）`select * from table where col=2`
+  - eq_ref 根据索引查询匹配某个值的行最多一行的情况（主键或唯一索引）`select a.* from a join b where a.id=b.aid`
+  - const/system 使用常量对主键唯一扫描 `select * from table where id=2`
+- possible_keys：可能使用的索引
+- key：实际使用的索引
+- key_len：使用索引长度
+- rows：预计扫描行数
+- Extra：解析查询的额外信息（using index、using where、using temporary、using filesort）
