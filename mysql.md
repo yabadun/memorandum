@@ -71,3 +71,8 @@ WHERE query_id = 1 GROUP BY state ORDER BY total_r DESC;
 - key_len：使用索引长度
 - rows：预计扫描行数
 - Extra：解析查询的额外信息（using index、using where、using temporary、using filesort）
+  - Using index：列数据仅仅使用了索引中的信息而没有读取实际的表`Select address_id from address where address_id=1;`
+  - Using where：MySQL服务器将在存储引擎检索行后，通过Where子句条件进行过滤`Select * from address where city_id>12;`
+  - Using temporary：MYSQL需要创建一个临时表来存储结果，用于排序`Select DISTINCT district from address;`
+  - Using filesort：MySQL将对结果进行外部排序`Select * from address  order by district;`
+
