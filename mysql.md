@@ -68,12 +68,23 @@ WHERE query_id = 1 GROUP BY state ORDER BY total_r DESC;
   - const/system 使用常量对主键唯一扫描 `select * from table where id=2`
 - possible_keys：可能使用的索引
 - key：实际使用的索引
-- key_len：使用索引长度
-- rows：预计扫描行数
-- Extra：解析查询的额外信息（using index、using where、using temporary、using filesort）
+- key_len：使用索引长度（vachar：长度*3|2列实际长度|列可为空则多一位标记，长度为45字符的varchar列索引且不能为空最终值为137）
+- rows：预计扫描行数（估算并不精确）
+- Extra：解析查询的额外信息
   - Using index：列数据仅仅使用了索引中的信息而没有读取实际的表`Select address_id from address where address_id=1;`
   - Using where：MySQL服务器将在存储引擎检索行后，通过Where子句条件进行过滤`Select * from address where city_id>12;`
   - Using temporary：MYSQL需要创建一个临时表来存储结果，用于排序`Select DISTINCT district from address;`
   - Using filesort：MySQL将对结果进行外部排序`Select * from address  order by district;`
-
+  - LooseScan 使用索引扫描一个子查询表
 不考虑存储过程、触发器、缓存；部分计算为估算并不精确；只能解释查询语句
+
+# ip转数值
+`select INET_ATON('192.168.0.1');
+select INET_NTOA(3232235521);`
+
+# 可为null列的问题 
+- 会使得索引、索引统计和值比较更为复杂
+- 会使用更多的存储空间，mysql需要特殊处理
+- 每个索引记录需要一个额外的字节来标记是否为null
+
+INNODB使用单独的位(bit)存储null值，所以对于稀疏数据有很好的空间效率
