@@ -105,3 +105,7 @@ INNODB使用单独的位(bit)存储null值，所以对于稀疏数据有很好�
 - `OPTIMIZE TABLE talbename`重新组织索引结构，对性能有很大影响，不建议使用
 - 二级索引的存储指向主键索引值`select id,name from table where name='xx'`只需遍历二级索引就能得到结果
 
+## 索引创建
+- 对于大字符串列，建立索引时可以选择前缀索引`count(DISTINCT left(col,3)) / count(*)`计算前缀长度
+- 选择性越高的放在越前面
+- `check table tablename;repair table tablename`检查表修复表
