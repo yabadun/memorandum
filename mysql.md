@@ -110,3 +110,5 @@ INNODB使用单独的位(bit)存储null值，所以对于稀疏数据有很好�
 - 选择性越高的放在越前面
 - `check table tablename;repair table tablename`检查表修复表会重建索引
 
+## 调整时区
+- `SHOW VARIABLES LIKE '%time_zone%';SET GLOBAL time_zone='+8:00';`
