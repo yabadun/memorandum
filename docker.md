@@ -21,4 +21,4 @@
  
 ##  Docker Registry
  - `docker pull registry`从官方镜像库拉取
- - `docker run -d -p 5000:5000 -v /usr/locacl/registry:/var/lib/registry --restart=always --name registry registry`启动容器
+ - `docker run -d -p 5000:5000 -v /usr/locacl/registry:/var/lib/registry --restart=always –privileged=true --name registry registry`启动容器
