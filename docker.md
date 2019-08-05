@@ -3,6 +3,13 @@
  - `systemctl start docker` 启动
  - `systemctl enable docker` 开机启动
  - `docker info`查看docker信息
+ 
+## 添加用户
+- `sudo groupadd docker`添加用户群组
+- `sudo gpasswd -a ${USER} docker`添加用户到群组
+- `sudo systemctl restart docker`重启服务
+- `newgrp docker`登入docker群组
+
 ## 常用命令
  - `docker images` 查看所有镜像
  - `docker rmi [IMAGE ID]`删除镜像
@@ -11,6 +18,7 @@
  - `docker start [CONTAINER ID]`指定容器ID启动一个容器，注意与`docker run `的区别
  - `docker stop [CONTAINER ID]`停止一个容器
  - `docker rm [CONTAINER ID]`删除容器，`$(docker ps -a -q)`删除所有状态为停止的容器
+ 
 ##  Docker Registry
  - `docker pull registry`从官方镜像库拉取
- - `docker run -d -v /usr/locacl/registry:/var/lib/registry --restart=always --name registry registry`
+ - `docker run -d -p 5000:5000 -v /usr/locacl/registry:/var/lib/registry --restart=always --name registry registry`启动容器
