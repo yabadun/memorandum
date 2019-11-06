@@ -22,3 +22,6 @@
 ##  Docker Registry
  - `docker pull registry`从官方镜像库拉取
  - `docker run -d -p 5000:5000 -v /usr/locacl/registry:/var/lib/registry --restart=always --privileged=true --name registry registry`启动容器
+
+## mysql
+ `docker run -v /var/lib/mysql:/var/lib/mysql --name zdd_mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 --restart=always --privileged=true mysql`
