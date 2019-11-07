@@ -25,3 +25,7 @@
 
 ## mysql
  `docker run -v /var/lib/mysql:/var/lib/mysql --name zdd_mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 --restart=always --privileged=true mysql`
+
+## redis
+ `docker run --name [redisname] -p [6380:6379]  -d [redis] --requirepass "123456"`
+ `docker exec -it [CONTAINER id] redis-cli `
