@@ -35,3 +35,6 @@
  `docker run -d --name sonarqube --link postgresql -p 9000:9000 -e sonar.jdbc.username=sonar -e sonar.jdbc.password=sonar -e sonar.jdbc.url=jdbc:postgresql://postgresql:5432/sonarqube sonarqube`
 ## jenkins
 `docker run -d --name blueocean -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkinsci/blueocean`
+
+## gogs
+`docker run --name=gogs -d -p 10022:22 -p 10080:3000 --privileged=true -v /var/gogs:/data gogs/gogs`
