@@ -18,6 +18,10 @@
  - `docker start [CONTAINER ID]`指定容器ID启动一个容器，注意与`docker run `的区别
  - `docker stop [CONTAINER ID]`停止一个容器
  - `docker rm [CONTAINER ID]`删除容器，`$(docker ps -a -q)`删除所有状态为停止的容器
+ ## 容器之间网络通信配置
+ - `docker network create [net-name]`创建
+ - `docker network connect [net-name] [container-name]`连接
+ - `docker network inspect [net-name]`
  
 ##  Docker Registry
  - `docker pull registry`从官方镜像库拉取
