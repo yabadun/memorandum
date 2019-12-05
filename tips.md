@@ -22,3 +22,5 @@
   [地址](https://juejin.im/post/5bc96afff265da0aa94a4493)
 # java锁
   [地址](https://juejin.im/post/5c5cf03ef265da2dd218a4c8)
+# redis 模糊匹配删除
+`redis-cli  -h [host] -p [port] -a [password] keys zdd.product_price*|xargs redis-cli  -h [host] -p [port] -a [password] del`
